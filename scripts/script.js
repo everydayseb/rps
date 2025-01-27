@@ -19,6 +19,8 @@ function getComputerChoice() {
     return rpsString;
 }
 
-for (let i = 0; i < 25; i++) {
-    console.log(getComputerChoice());
+function getHumanChoice() {
+    let humanChoice = prompt("Enter your choice (rock/paper/scissors)");
+    return humanChoice.toLowerCase();
 }
+
