@@ -23,14 +23,24 @@ function getComputerChoice() {
 }
 
 const buttons = document.querySelectorAll("button");
+const resultsContainer = document.querySelector("#results");
+const scoreContainer = document.querySelector("#score");
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         playRound(button.id, getComputerChoice());
-    })
-})
-
-const resultsContainer = document.querySelector("#results");
+        if (humanScore == 5) {
+            resultsContainer.textContent = "Human player wins!";
+            humanScore = 0;
+            computerScore = 0;
+        }
+        if (computerScore == 5) {
+            resultsContainer.textContent = "Computer player wins!";
+            humanScore = 0;
+            computerScore = 0;
+        }
+    });
+});
 
 
 function playRound(humanChoice, computerChoice) {
@@ -42,23 +52,33 @@ function playRound(humanChoice, computerChoice) {
     } else if (human == 'rock' && computer == 'paper') {
         resultsContainer.textContent = `You lose! ${computer} beats ${human}`;
         computerScore++;
+        updateScore();
     } else if (human == 'rock' && computer == 'scissors') {
         resultsContainer.textContent = `You win! ${human} beats ${computer}`;
-        humanScore++
+        humanScore++;
+        updateScore();
     } else if (human == 'paper' && computer == 'scissors') {
         resultsContainer.textContent = `You lose! ${computer} beats ${human}`;
         computerScore++;
+        updateScore();
     } else if (human == 'paper' && computer == 'rock') {
         resultsContainer.textContent = `You win! ${human} beats ${computer}`;
         humanScore++;
+        updateScore();
     } else if (human == 'scissors' && computer == 'rock') {
         resultsContainer.textContent = `You lose! ${computer} beats ${human}`;
         computerScore++;
+        updateScore();
     } else if (human == 'scissors' && computer == 'paper') {
         resultsContainer.textContent = `You win! ${human} beats ${computer}`;
         humanScore++;
+        updateScore();
     } else {
         resultsContainer.textContent = `Error resolving round. Human: ${human}  Computer: ${computer}`;
     }
 
+}
+
+function updateScore() {
+    scoreContainer.textContent = `Human: ${humanScore}   Computer: ${computerScore}`;
 }
