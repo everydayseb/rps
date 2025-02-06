@@ -22,10 +22,13 @@ function getComputerChoice() {
     return rpsString;
 }
 
-function getHumanChoice() {
-    let humanChoice = prompt("Enter your choice (rock/paper/scissors)");
-    return humanChoice.toLowerCase();
-}
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        playRound(button.id, getComputerChoice());
+    })
+})
 
 function playRound(humanChoice, computerChoice) {
     let human = humanChoice;
