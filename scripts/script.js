@@ -30,32 +30,35 @@ buttons.forEach((button) => {
     })
 })
 
+const resultsContainer = document.querySelector("#results");
+
+
 function playRound(humanChoice, computerChoice) {
     let human = humanChoice;
     let computer = computerChoice;
 
     if (human == computer) {
-        console.log(`Draw! ${human} and ${computer}`);
+        resultsContainer.textContent = `Draw! ${human} and ${computer}`;
     } else if (human == 'rock' && computer == 'paper') {
-        console.log(`You lose! ${computer} beats ${human}`);
+        resultsContainer.textContent = `You lose! ${computer} beats ${human}`;
         computerScore++;
     } else if (human == 'rock' && computer == 'scissors') {
-        console.log(`You win! ${human} beats ${computer}`);
+        resultsContainer.textContent = `You win! ${human} beats ${computer}`;
         humanScore++
     } else if (human == 'paper' && computer == 'scissors') {
-        console.log(`You lose! ${computer} beats ${human}`);
+        resultsContainer.textContent = `You lose! ${computer} beats ${human}`;
         computerScore++;
     } else if (human == 'paper' && computer == 'rock') {
-        console.log(`You win! ${human} beats ${computer}`);
+        resultsContainer.textContent = `You win! ${human} beats ${computer}`;
         humanScore++;
     } else if (human == 'scissors' && computer == 'rock') {
-        console.log(`You lose! ${computer} beats ${human}`);
+        resultsContainer.textContent = `You lose! ${computer} beats ${human}`;
         computerScore++;
     } else if (human == 'scissors' && computer == 'paper') {
-        console.log(`You win! ${human} beats ${computer}`);
+        resultsContainer.textContent = `You win! ${human} beats ${computer}`;
         humanScore++;
     } else {
-        console.log(`Error resolving round. Human: ${human}  Computer: ${computer}`);
+        resultsContainer.textContent = `Error resolving round. Human: ${human}  Computer: ${computer}`;
     }
 
 }
