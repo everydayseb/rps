@@ -56,17 +56,3 @@ function playRound(humanChoice, computerChoice) {
     }
 
 }
-
-function playGame(numberOfRounds = 5) {
-    humanScore = 0;
-    computerScore = 0;
-
-    for (let i = 0; i < numberOfRounds; i++) {
-        let humanChoice = getHumanChoice();
-        let computerChoice = getComputerChoice();
-    
-        playRound(humanChoice, computerChoice);
-    }
-}
-
-playGame();
